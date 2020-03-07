@@ -15,7 +15,7 @@ class Car {
   }
 
   public function getName() {
-  return $this->name;
+    return $this->name;
   }
   public function setName($name) {
     $this->name = $name;
@@ -39,30 +39,36 @@ class Car {
     echo '車の種類:' . $this->name . '、' . '車体番号:' . $this->number . '、' . 'カラー:' . $this->color . 'です。';
   }
 }
+
 // 以下にCarクラスを継承したTaxiクラスを記述
 class Taxi extends car {
   private $passenger; 
-
-  private function getPassenger() {
+//publicでクラスの外側から呼び出す
+  public function getPassenger() {
     return $this->passenger;
   }
-  private function setPassenger($passenger) {
-    $this->passenger = $passenger;
-  }
 
-  private function getPickup() {
+  //乗車人数表示
+  public function pickup() {
     return $this->pickup;
   }
-  private function setPickup($pickup) {
+  public function setPickup($picup) {
     $this->pickup = $pickup;
   }
 
-  public function lower($passenger) {
+//降車_もし人が降りたら&人がいない場合
+  public function lower($lower) {
     return $this->lower;
+    if ($this->$pickup - $lower > 0) {
+      $this->pickup = $lower;
+      echo $lower . '人降車しました。';
+    } else {
+      echo '乗車人数に誤りがあります';
+    }
   }
 
   public function infomation() {
-    echo '車の車種:' . $this->name . '、' . '車体番号:' . $this->number . '、' . 'カラー:' . $this->color . '、' . '乗車人数は' . $this->lower . 'です。';
+    echo '車の車種:' . $this->getName() . '、' . '車体番号:' . $this->getNumber() . '、' . 'カラー:' . $this->getColor() . '、' . '乗車人数は' . $this->getPassenger . 'です。';
   }
 }
 
