@@ -48,27 +48,24 @@ class Taxi extends car {
     return $this->passenger;
   }
 
-  //乗車人数表示
-  public function pickup() {
-    return $this->pickup;
-  }
-  public function setPickup($picup) {
-    $this->pickup = $pickup;
+  //乗車
+  public function pickup($passenger) {
+    return $this->passenger = $passenger;
   }
 
-//降車_もし人が降りたら&人がいない場合
-  public function lower($lower) {
-    return $this->lower;
-    if ($this->$pickup - $lower > 0) {
-      $this->pickup = $lower;
-      echo $lower . '人降車しました。';
+//降車 もし人が降りたら&人がいない場合
+  public function lower($passenger) {
+    return $this->passenger;
+    if ($this->passenger - $passenger > 0) {
+      $this->passenger - $passenger;
+      echo $passenger . '人降車しました。';
     } else {
       echo '乗車人数に誤りがあります';
     }
   }
 
   public function infomation() {
-    echo '車の車種:' . $this->getName() . '、' . '車体番号:' . $this->getNumber() . '、' . 'カラー:' . $this->getColor() . '、' . '乗車人数は' . $this->getPassenger . 'です。';
+    echo '車の車種:' . $this->getName() . '、' . '車体番号:' . $this->getNumber() . '、' . 'カラー:' . $this->getColor() . '、' . '乗車人数は' . $this->getPassenger() . 'です。';
   }
 }
 
