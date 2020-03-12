@@ -42,22 +42,21 @@ class Car {
 
 // 以下にCarクラスを継承したTaxiクラスを記述
 class Taxi extends car {
-  private $passenger; 
+  private $passenger;
 //publicでクラスの外側から呼び出す
   public function getPassenger() {
     return $this->passenger;
   }
 
   //乗車
-  public function pickup($passenger) {
-    return $this->passenger = $passenger;
+  public function pickUp($passenger) {
+    $this->passenger = $passenger;
   }
 
 //降車 もし人が降りたら&人がいない場合
   public function lower($passenger) {
-    return $this->passenger;
-    if ($this->passenger - $passenger > 0) {
-      $this->passenger - $passenger;
+    if ($this->passenger - $passenger >= 0) {
+      $this->passenger -= $passenger = $passenger;
       echo $passenger . '人降車しました。';
     } else {
       echo '乗車人数に誤りがあります';
@@ -70,7 +69,6 @@ class Taxi extends car {
 }
 
 // 以下を実行した時にエラーがでないようにして下さい
-// Carクラスのインスタンスを生成
 // 引数 : 車名、車体番号、カラー
 $car1 = new Car('ランクル', 100, 'black');
 
@@ -95,40 +93,3 @@ echo '<br>';
 
 // 一人降車
 $taxi1->lower(2);
-$car1 = new Car('ランクル', 100, 'black');
-
-// $car1->selfIntrodaction();
-// 車名(車種)を取得
-echo $car1->getName();
-echo '<br>';
-
-// 車体番号を取得
-echo $car1->getNumber();
-echo '<br>';
-
-// カラーを取得
-echo $car1->getColor();
-echo '<br>';
-
-// 車の情報表示を表示
-echo $car1->infomation();
-echo '<br>';
-
-// 車名(車種)を更新
-$car1->setName('アルファード');
-echo $car1->getName();
-echo '<br>';
-
-// 車体番号を取得
-$car1->setNumber(200);
-echo $car1->getNumber();
-echo '<br>';
-
-// カラーを取得
-$car1->setColor('red');
-echo $car1->getColor();
-echo '<br>';
-
-// 車の情報表示を表示
-echo $car1->infomation();
-echo '<br>';
