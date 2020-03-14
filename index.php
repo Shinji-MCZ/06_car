@@ -58,13 +58,13 @@ class Taxi extends car {
     if ($this->passenger - $passenger >= 0) {
       $this->passenger -= $passenger = $passenger;
       echo $passenger . '人降車しました。';
-    } else {
-      echo '乗車人数に誤りがあります';
+  } else {
+    echo '乗車人数に誤りがあります';
     }
   }
 
   public function infomation() {
-    echo '車の車種:' . $this->getName() . '、' . '車体番号:' . $this->getNumber() . '、' . 'カラー:' . $this->getColor() . '、' . '乗車人数は' . $this->getPassenger() . 'です。';
+    echo '車の車種:' . $this->getName() . '、' . '車体番号:' . $this->getNumber() . '、' . 'カラー:' . $this->getColor() . '、' . '乗車人数は' . $this->getPassenger() . '人です。';
   }
 }
 
